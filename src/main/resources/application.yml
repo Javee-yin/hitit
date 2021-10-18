@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  banner:
+    location: classpath:banner.txt
+
+# 配置Mybatis
+mybatis:
+  mapper-locations: classpath:mapping/*.xml,classpath:mapping/**/*.xml,classpath:dbsupportormapping/*.xml
+  type-aliases-package: per.javee.hitit.dbsupportor.entity,per.javee.hitit.module.*.entity
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: false
+  supportMethodsArguments: true
+  params: count=countSql
+
+multipartResolver:
+  maxUploadSize: 104857600
+  maxInMemorySize: 4096
