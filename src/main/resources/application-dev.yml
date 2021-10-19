@@ -23,7 +23,9 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
-
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
   # File upload size
   servlet:
     multipart:

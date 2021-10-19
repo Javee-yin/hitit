@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    user-select: none;
+}
+
+#title {
+    position: fixed;
+    font-family: 'FZShuTi', sans-serif;
+    font-size: 200px;
+    align-items: center;
+    justify-content: center;
+    margin: 100px auto;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}
+
+#back {
+    background-color: #eafbff;
+    background-image: linear-gradient(
+            to bottom,
+            #5290f9 0%,
+            #5290f9 50%,
+            #eafbff 50%,
+            #eafbff 100%
+    );
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+nav {
+    background-color: #fff;
+    padding: 20px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: width 0.6s linear;
+    overflow-x: hidden;
+}
+
+nav.active {
+    width: 500px;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 0;
+    transition: width 0.6s linear;
+}
+
+nav.active ul {
+    width: 100%;
+}
+
+nav ul li {
+    transform: rotateY(0deg);
+    opacity: 0;
+    transition: transform 0.6s linear, opacity 0.6s linear;
+}
+
+nav.active ul li {
+    opacity: 1;
+    transform: rotateY(360deg);
+}
+
+nav ul a {
+    position: relative;
+    color: #000;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav ul a:hover {
+    color: rgb(82, 144, 249)
+}
+
+div a {
+    position: relative;
+    color: rgb(162,164,164);
+    text-decoration: none;
+}
+
+div a:hover {
+    color: rgb(82, 144, 249)
+}
+
+img {
+    margin-left: 50px;
+}
+
+.icon {
+    background-color: #fff;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    height: 30px;
+    width: 30px;
+}
+
+.icon:focus {
+    outline: 0;
+}
+
+.icon .line {
+    background-color: #5290f9;
+    height: 2px;
+    width: 20px;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    transition: transform 0.6s linear;
+}
+
+.icon .line2 {
+    top: auto;
+    bottom: 10px;
+}
+
+nav.active .icon .line1 {
+    transform: rotate(-765deg) translateY(5.5px);
+}
+
+nav.active .icon .line2 {
+    transform: rotate(765deg) translateY(-5.5px);
+}
