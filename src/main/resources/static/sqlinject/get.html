@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../css/get.css"/>
+    <title>Get String</title>
+</head>
+<body>
+<form class="user-form" id="form">
+    <input type="text" id="search" placeholder="Input a user name">
+</form>
+
+<main id="main"></main>
+
+<script src="../js/jquery.js"></script>
+
+<script>
+    const main = document.getElementById('main')
+    const form = document.getElementById('form')
+    const search = document.getElementById('search')
+
+    async function getUser(username) {
+
+        $(function () {
+            $.get("getUser?name=" + username, function (res) {
+                createUserCard(res)
+            }, "json");
+        });
+
+    }
+
+    function createUserCard(user) {
+        const userID = user.name
+        const cardHTML = `
+            <div class="card">
+            <div class="user-info">
+              <h2>${userID}</h2>
+              <ul>
+                <li><strong>Phone:</strong>${user.phone} </li>
+                <li><strong>Address:</strong>${user.address} </li>
+                <li><strong>Sex:</strong>${user.sex} </li>
+              </ul>
+
+              <div id="repos"></div>
+            </div>
+          </div>
+        `
+        main.innerHTML = cardHTML
+
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        const user = search.value
+
+        if (user) {
+            getUser(user)
+
+            search.value = ''
+        }
+    })
+
+</script>
+</body>
+</html>
