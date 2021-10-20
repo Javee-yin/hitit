@@ -7,4 +7,10 @@
         and name = ${name}
     </select>
 
+    <select id="findUserById" parameterType="string" resultType="per.javee.hitit.dbsupportor.entity.HUser">
+        select * from h_user
+        where is_deleted = 0
+        and id = ${id}
+    </select>
+
 </mapper>

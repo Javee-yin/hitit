@@ -12,4 +12,6 @@ import java.util.List;
  */
 public interface UserUDMapper extends HUserMapper {
     List<HUser> findUserByName(String name);
+
+    HUser findUserById(String id);
 }

@@ -9,4 +9,8 @@ import per.javee.hitit.dbsupportor.entity.HUser;
  */
 public interface UserService {
     HUser getUserByName(String name);
+
+    HUser getUserById(String id);
+
+    HUser getUserPractice(String name);
 }
