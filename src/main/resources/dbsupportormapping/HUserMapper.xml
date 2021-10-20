@@ -3,9 +3,9 @@
 <mapper namespace="per.javee.hitit.dbsupportor.mapper.HUserMapper">
   <resultMap id="BaseResultMap" type="per.javee.hitit.dbsupportor.entity.HUser">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="login_pwd" jdbcType="VARCHAR" property="loginPwd" />
+    <result column="pwd" jdbcType="VARCHAR" property="pwd" />
     <result column="sex" jdbcType="VARCHAR" property="sex" />
     <result column="address" jdbcType="VARCHAR" property="address" />
     <result column="email" jdbcType="VARCHAR" property="email" />
@@ -75,7 +75,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, login_name, phone, login_pwd, sex, address, email, create_time, created_by, update_time, 
+    id, name, phone, pwd, sex, address, email, create_time, created_by, update_time, 
     updated_by, is_deleted, remark
   </sql>
   <select id="selectByExample" parameterType="per.javee.hitit.dbsupportor.entity.HUserExample" resultMap="BaseResultMap">
@@ -117,13 +117,13 @@
     </if>
   </delete>
   <insert id="insert" parameterType="per.javee.hitit.dbsupportor.entity.HUser">
-    insert into h_user (id, login_name, phone, 
-      login_pwd, sex, address, 
+    insert into h_user (id, name, phone, 
+      pwd, sex, address, 
       email, create_time, created_by, 
       update_time, updated_by, is_deleted, 
       remark)
-    values (#{id,jdbcType=BIGINT}, #{loginName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
-      #{loginPwd,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{pwd,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{updatedBy,jdbcType=VARCHAR}, #{isDeleted,jdbcType=BIT}, 
       #{remark,jdbcType=VARCHAR})
@@ -134,14 +134,14 @@
       <if test="id != null">
         id,
       </if>
-      <if test="loginName != null">
-        login_name,
+      <if test="name != null">
+        name,
       </if>
       <if test="phone != null">
         phone,
       </if>
-      <if test="loginPwd != null">
-        login_pwd,
+      <if test="pwd != null">
+        pwd,
       </if>
       <if test="sex != null">
         sex,
@@ -175,14 +175,14 @@
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="loginName != null">
-        #{loginName,jdbcType=VARCHAR},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
       <if test="phone != null">
         #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="loginPwd != null">
-        #{loginPwd,jdbcType=VARCHAR},
+      <if test="pwd != null">
+        #{pwd,jdbcType=VARCHAR},
       </if>
       <if test="sex != null">
         #{sex,jdbcType=VARCHAR},
@@ -225,14 +225,14 @@
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.loginName != null">
-        login_name = #{record.loginName,jdbcType=VARCHAR},
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
       </if>
       <if test="record.phone != null">
         phone = #{record.phone,jdbcType=VARCHAR},
       </if>
-      <if test="record.loginPwd != null">
-        login_pwd = #{record.loginPwd,jdbcType=VARCHAR},
+      <if test="record.pwd != null">
+        pwd = #{record.pwd,jdbcType=VARCHAR},
       </if>
       <if test="record.sex != null">
         sex = #{record.sex,jdbcType=VARCHAR},
@@ -269,9 +269,9 @@
   <update id="updateByExample" parameterType="map">
     update h_user
     set id = #{record.id,jdbcType=BIGINT},
-      login_name = #{record.loginName,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
       phone = #{record.phone,jdbcType=VARCHAR},
-      login_pwd = #{record.loginPwd,jdbcType=VARCHAR},
+      pwd = #{record.pwd,jdbcType=VARCHAR},
       sex = #{record.sex,jdbcType=VARCHAR},
       address = #{record.address,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
@@ -288,14 +288,14 @@
   <update id="updateByPrimaryKeySelective" parameterType="per.javee.hitit.dbsupportor.entity.HUser">
     update h_user
     <set>
-      <if test="loginName != null">
-        login_name = #{loginName,jdbcType=VARCHAR},
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="phone != null">
         phone = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="loginPwd != null">
-        login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      <if test="pwd != null">
+        pwd = #{pwd,jdbcType=VARCHAR},
       </if>
       <if test="sex != null">
         sex = #{sex,jdbcType=VARCHAR},
@@ -329,9 +329,9 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="per.javee.hitit.dbsupportor.entity.HUser">
     update h_user
-    set login_name = #{loginName,jdbcType=VARCHAR},
+    set name = #{name,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=VARCHAR},
-      login_pwd = #{loginPwd,jdbcType=VARCHAR},
+      pwd = #{pwd,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},

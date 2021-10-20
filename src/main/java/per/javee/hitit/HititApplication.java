@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@MapperScan({"per.javee.hitit.**.dao","per.javee.hitit.dbsupportor.mapper.*"})
+@MapperScan({"per.javee.hitit.**.dao","per.javee.hitit.dbsupportor.dao"})
 @ComponentScan({"per.javee.hitit.*"})
 @EnableAsync
 @EnableTransactionManagement

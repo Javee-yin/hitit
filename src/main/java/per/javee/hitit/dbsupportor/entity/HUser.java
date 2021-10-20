@@ -5,11 +5,11 @@ import java.util.Date;
 public class HUser {
     private Long id;
 
-    private String loginName;
+    private String name;
 
     private String phone;
 
-    private String loginPwd;
+    private String pwd;
 
     private String sex;
 
@@ -37,12 +37,12 @@ public class HUser {
         this.id = id;
     }
 
-    public String getLoginName() {
-        return loginName;
+    public String getName() {
+        return name;
     }
 
-    public void setLoginName(String loginName) {
-        this.loginName = loginName == null ? null : loginName.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     public String getPhone() {
@@ -53,12 +53,12 @@ public class HUser {
         this.phone = phone == null ? null : phone.trim();
     }
 
-    public String getLoginPwd() {
-        return loginPwd;
+    public String getPwd() {
+        return pwd;
     }
 
-    public void setLoginPwd(String loginPwd) {
-        this.loginPwd = loginPwd == null ? null : loginPwd.trim();
+    public void setPwd(String pwd) {
+        this.pwd = pwd == null ? null : pwd.trim();
     }
 
     public String getSex() {
@@ -140,9 +140,9 @@ public class HUser {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", loginName=").append(loginName);
+        sb.append(", name=").append(name);
         sb.append(", phone=").append(phone);
-        sb.append(", loginPwd=").append(loginPwd);
+        sb.append(", pwd=").append(pwd);
         sb.append(", sex=").append(sex);
         sb.append(", address=").append(address);
         sb.append(", email=").append(email);
