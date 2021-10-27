@@ -1,10 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>unsafe-download</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../css/string.css"/>
+    <title>try download</title>
 </head>
 <body>
-不安全文件下载页面
+<form class="user-form" id="form" enctype="multipart/form-data">
+    <input type="file" id="upload" onchange="uploadFile(this.files[0])">
+</form>
+
+<main id="main"></main>
+
+<script src="../js/jquery.js"></script>
+
+<script>
+    const main = document.getElementById('main')
+
+    async function uploadFile(file) {
+
+        if(!file) {
+            return;
+        }
+
+        var formData = new FormData();
+        formData.append("file",file);
+
+        $.ajax
+        ({
+            url:'upload',
+            dataType:'json',
+            type:'POST',
+            data: formData,
+            processData : false, // 使数据不做处理
+            contentType : false, // 不要设置Content-Type请求头
+            success: function(data)
+            {
+                createInfoCard(data.data.data)
+            }
+        });
+
+    }
+
+    function createInfoCard(uri) {
+        const cardHTML = `
+            <div class="card">
+            <div class="user-info">
+              <h2>Success</h2>
+              <h2><a id="download" href="downloadFile?fileName=${encodeURIComponent(uri)}" >download</a></h2>
+            </div>
+          </div>
+        `
+        main.innerHTML = cardHTML
+
+    }
+
+</script>
+<style>
+    #download{
+        color: white;
+    }
+</style>
 </body>
 </html>
