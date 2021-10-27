@@ -52,6 +52,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public HUser getUserPractice(String name) {
         if(name.contains("'") || name.contains(" ") || name.contains("#") || name.contains("--")){
+            log.info("系统检测到被攻击！已启动安全防护！！！");
             HUser hUser = new HUser();
             hUser.setName("Don't try hack me");
             hUser.setPhone("U R a loser");
