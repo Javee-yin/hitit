@@ -1,10 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>force-brute</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../css/string.css"/>
+    <title>login</title>
 </head>
 <body>
-暴力破解页面
+<div class="user-form" id="form">
+    <input type="text" id="name" placeholder="name">
+    <input type="password" id="password" placeholder="passwd">
+    <button onclick="login()">login</button>
+</div>
+<main id="main"></main>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/md5.min.js"></script>
+
+<script>
+    const main = document.getElementById('main');
+
+
+    function login() {
+        const name = document.getElementById('name').value;
+        const passwd = document.getElementById('password').value;
+        console.log(md5(passwd));
+
+        if(!name || !passwd) {
+            return;
+        }
+
+
+        $(function () {
+            $.get("login?name=" + name + "&passwd=" + md5(passwd), function (res) {
+                createShowCard(res)
+            }, "json");
+        });
+
+    }
+
+    function createShowCard(user) {
+        console.log(user);
+        if(!user){
+            const userID = 'error';
+            const cardHTML = `
+                <div class="card">
+                <div class="user-info">
+                  <h2>${userID}</h2>
+                </div>
+              </div>
+            `;
+            main.innerHTML = cardHTML;
+            return;
+        }
+        const userID = user.name;
+        const cardHTML = `
+            <div class="card">
+            <div class="user-info">
+              <h2>${userID}</h2>
+              <ul>
+                <li><strong>Phone:</strong>${user.phone} </li>
+                <li><strong>Address:</strong>${user.address} </li>
+                <li><strong>Sex:</strong>${user.sex} </li>
+              </ul>
+
+              <div id="repos"></div>
+            </div>
+          </div>
+        `
+        main.innerHTML = cardHTML
+
+    }
+
+</script>
 </body>
 </html>
