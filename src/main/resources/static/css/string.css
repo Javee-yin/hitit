@@ -22,7 +22,7 @@ body {
   max-width: 700px;
 }
 
-.user-form input {
+.user-form input, .user-form button {
   width: 100%;
   display: block;
   background-color: #4c2885;

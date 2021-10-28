@@ -20,13 +20,13 @@ CREATE TABLE `h_user` (
 delete from h_user where id in (1,2,3,4);
 INSERT INTO h_user
 (id, name, phone, pwd, sex, address, email, create_time, created_by, update_time, updated_by, is_deleted, remark)
-VALUES(1, 'jemmy', '15100000000', '123456', 'female', 'beijing', 'jemmy@hitit.com', '2021-10-19 10:41:19.0', 'Javee', '2021-10-19 10:41:19.0', '', 0, '内置用户');
+VALUES(1, 'jemmy', '15100000000', '$2a$10$gfPWvjP/SGVViqJumH010.XZsRqkq/m4CQHpHy68yTz.ElzqZmpHi', 'female', 'beijing', 'jemmy@hitit.com', '2021-10-19 10:41:19.0', 'Javee', '2021-10-19 10:41:19.0', '', 0, '内置用户');
 INSERT INTO h_user
 (id, name, phone, pwd, sex, address, email, create_time, created_by, update_time, updated_by, is_deleted, remark)
-VALUES(2, 'jack', '15111111111', '123456', 'male', 'shanghai', 'jack@hitit.com', '2021-10-19 10:41:19.0', 'Javee', '2021-10-19 10:41:19.0', '', 0, '内置用户');
+VALUES(2, 'jack', '15111111111', '$2a$10$EyrqSpdUpGcLbKu0SsR/wuMWZd80FR5Zb3fxYzHHrvozXEokqdRFC', 'male', 'shanghai', 'jack@hitit.com', '2021-10-19 10:41:19.0', 'Javee', '2021-10-19 10:41:19.0', '', 0, '内置用户');
 INSERT INTO h_user
 (id, name, phone, pwd, sex, address, email, create_time, created_by, update_time, updated_by, is_deleted, remark)
-VALUES(3, 'lucy', '15122222222', '123456', 'female', 'nanjing', 'lucy@hitit.com', '2021-10-19 10:41:19.0', 'Javee', '2021-10-19 10:41:19.0', '', 0, '内置用户');
+VALUES(3, 'lucy', '15122222222', '$2a$10$fA73fhiYHNPtMiTX2VXAEuDnt.k5EbJHVAMJApGP3U0uxclv9ASxO', 'female', 'nanjing', 'lucy@hitit.com', '2021-10-19 10:41:19.0', 'Javee', '2021-10-19 10:41:19.0', '', 0, '内置用户');
 INSERT INTO h_user
 (id, name, phone, pwd, sex, address, email, create_time, created_by, update_time, updated_by, is_deleted, remark)
-VALUES(4, 'alice', '15133333333', '123456', 'female', 'xi·an', 'alice@hitit.com', '2021-10-19 10:41:19.0', 'Javee', '2021-10-19 10:41:19.0', '', 0, '内置用户');
+VALUES(4, 'alice', '15133333333', '$2a$10$Wo2fSncjE96U5T60RDn7s.JMbSdCVapSaRQzP2IYLplMJ41Tmn5dK', 'female', 'xi·an', 'alice@hitit.com', '2021-10-19 10:41:19.0', 'Javee', '2021-10-19 10:41:19.0', '', 0, '内置用户');
