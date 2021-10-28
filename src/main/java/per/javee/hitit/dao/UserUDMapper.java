@@ -1,4 +1,4 @@
-package per.javee.hitit.module.sqlinject.dao;
+package per.javee.hitit.dao;
 
 import per.javee.hitit.dbsupportor.entity.HUser;
 import per.javee.hitit.dbsupportor.mapper.HUserMapper;

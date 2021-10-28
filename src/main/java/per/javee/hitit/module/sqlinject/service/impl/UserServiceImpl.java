@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import per.javee.hitit.dbsupportor.entity.HUser;
 import per.javee.hitit.dbsupportor.entity.HUserExample;
-import per.javee.hitit.module.sqlinject.dao.UserUDMapper;
+import per.javee.hitit.dao.UserUDMapper;
 import per.javee.hitit.module.sqlinject.service.UserService;
 import per.javee.hitit.utils.HititListUtils;
 import per.javee.hitit.utils.HititObjectUtils;
