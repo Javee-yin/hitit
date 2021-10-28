@@ -1,10 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>rce</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../css/string.css"/>
+    <title>command</title>
 </head>
 <body>
-命令执行页面
+<form class="user-form" id="form">
+    <input type="text" id="cmd" placeholder="command">
+</form>
+<main id="main"></main>
+
+<style>
+    select {
+        width: 100%;
+        display: block;
+        background-color: #4c2885;
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        font-family: inherit;
+        font-size: 1rem;
+        box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
+        0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+</style>
+<script src="../js/jquery.js"></script>
+
+<script>
+    const main = document.getElementById('main')
+    const form = document.getElementById('form')
+    const cmd = document.getElementById('cmd')
+
+    async function exec(command) {
+
+        $(function () {
+            $.get("exec?command=" + command, function (res) {
+                createShowCard(res)
+            }, "json");
+        });
+
+    }
+
+    function createShowCard(res) {
+        const data = res.data;
+        let split = data.split(/\r?\n/);
+        var dataHTML = "";
+        split.forEach(str => {
+            if(str) {
+                dataHTML += `
+                <div>${str}</div>
+            `
+            }
+        });
+        console.log(dataHTML)
+        const cardHTML = `
+            <div class="card">
+            <div class="user-info">
+              ${dataHTML}
+            </div>
+          </div>
+        `
+        main.innerHTML = cardHTML
+
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+
+        const command = cmd.value
+
+        if (command) {
+            exec(command)
+            cmd.value = ''
+        }
+    })
+
+</script>
 </body>
 </html>
