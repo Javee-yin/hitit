@@ -65,12 +65,12 @@ body {
 
 .user-info {
   color: #eee;
-  margin-left: 2rem;
+  /*margin-left: 2rem;*/
 }
 
 .user-info h2 {
   margin-top: 0;
-  margin-left: 15px;
+  margin-left: 5px;
 }
 
 .user-info ul {
