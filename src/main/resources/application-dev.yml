@@ -1,6 +1,6 @@
-#设置项目端口
+#设置项目版本号
 server:
-  version: v.0.0.1.dev.20211018.1026
+  version: v.0.0.1.dev.20211102.1737
 
 spring:
   datasource:
