@@ -53,5 +53,6 @@
 
 		<!-- 示例表 -->
 		<table schema="" tableName="h_user" />
+		<table schema="" tableName="h_msg" />
 	</context>
 </generatorConfiguration>

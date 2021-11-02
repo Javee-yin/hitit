@@ -24,7 +24,6 @@
     function login() {
         const name = document.getElementById('name').value;
         const passwd = document.getElementById('password').value;
-        console.log(md5(passwd));
 
         if(!name || !passwd) {
             return;
@@ -40,7 +39,6 @@
     }
 
     function createShowCard(user) {
-        console.log(user);
         if(!user){
             const userID = 'error';
             const cardHTML = `
