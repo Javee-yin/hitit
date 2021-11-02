@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../css/string.css"/>
+    <title>reflective</title>
+</head>
+<body>
+<form class="user-form" id="form">
+    <input type="text" id="search" placeholder="Input a user name" maxlength="10">
+</form>
+
+<main id="main" style="display: none">
+    <div class="card">
+        <div class="user-info">
+            <h2 id="show"></h2>
+        </div>
+    </div>
+</main>
+
+<script src="../js/jquery.js"></script>
+
+<script>
+    const show = document.getElementById('show');
+    const form = document.getElementById('form');
+    const search = document.getElementById('search');
+    const main = document.getElementById('main');
+
+    function createUserCard(user) {
+        const userID = user;
+        const cardHTML = `hello, ${userID}`
+        main.style.display = "block";
+        show.innerHTML = cardHTML
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const user = search.value;
+        if (user) {
+            createUserCard(user);
+            search.value = '';
+        }
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../css/string.css"/>
+    <title>reflective</title>
+</head>
+<body>
+<div class="user-form" id="form">
+    <input type="text" id="msg" placeholder="Leaving a message">
+    <input type="text" id="name" placeholder="Input your name">
+    <button onclick="commit()">commit</button>
+</div>
+
+<main id="main"></main>
+
+<script src="../js/jquery.js"></script>
+
+<script>
+    $(function(){
+        createShowCard();
+    });
+    const main = document.getElementById('main');
+
+
+    function commit() {
+        const name = document.getElementById('name').value;
+        const msg = document.getElementById('msg').value;
+
+        if(!name || !msg) {
+            return;
+        }
+
+        $(function () {
+            $.get("saveMsg?name=" + name + "&msg=" + msg, function () {
+                createShowCard();
+            }, "json");
+        });
+    }
+
+    function createShowCard() {
+        $.get("getMsg", function (res) {
+            if(res.length) {
+                let cardHTML = "<div class=\"card\"><div class=\"user-info\">";
+                for (let resKey in res) {
+                    let obj = res[resKey];
+                    cardHTML = cardHTML + `
+                          <div>${obj.name}: ${obj.createTime}<br/>${obj.msg}</div>
+                    `
+                }
+                cardHTML = cardHTML + "</div></div>";
+                main.innerHTML = cardHTML
+            }
+        }, "json");
+
+    }
+
+</script>
+</body>
+</html>

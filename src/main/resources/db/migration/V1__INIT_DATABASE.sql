@@ -17,6 +17,19 @@ CREATE TABLE `h_user` (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='登录用户表';
 
+CREATE TABLE `h_msg` (
+  `id` bigint(20) unsigned NOT NULL DEFAULT '0' COMMENT '主键，不允许自增',
+  `name` varchar(100) NOT NULL DEFAULT '' COMMENT '留言用户名',
+  `msg` varchar(1000) DEFAULT NULL COMMENT '留言信息',
+  `create_time` timestamp(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `created_by` varchar(255) DEFAULT NULL COMMENT '创建人',
+  `update_time` timestamp(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+  `updated_by` varchar(255) DEFAULT NULL COMMENT '更新人',
+  `is_deleted` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否已经删除，0未删除(默认)，1已删除',
+  `remark` varchar(255) DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC COMMENT='用户留言信息表';
+
 delete from h_user where id in (1,2,3,4);
 INSERT INTO h_user
 (id, name, phone, pwd, sex, address, email, create_time, created_by, update_time, updated_by, is_deleted, remark)
